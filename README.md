@@ -20,18 +20,6 @@ A fully functional **To-Do web application** built with Django. This app allows 
 
 ---
 
-## Screenshots
-
-### Home Page
-![Home Page](screenshots/home.png)
-
-### Completed Tasks
-![Completed Tasks](screenshots/completed.png)
-
-### Profile Page
-![Profile Page](screenshots/profile.png)
-
----
 
 ## Technologies Used
 
