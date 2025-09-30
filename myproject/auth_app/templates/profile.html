@@ -1,0 +1,26 @@
+{% extends  'main.html' %}
+{% block content %}
+
+ <center>
+    <div class="profile1">
+        <div class="title">
+            <h2>User Profile</h2>
+        </div>
+        <div class="profile">
+            <h2>UserName={{request.user}}</h2>
+            <h2>Verified={{request.user.is_authenticated}}</h2>
+            <h2>FirstName={{request.user.first_name}}</h2>
+            <h2>LastName={{request.user.last_name}}</h2>
+            <h2>Email={{request.user.email}}</h2>
+            <h2>Username={{request.user.username}}</h2>
+        </div>
+    
+        <div class="lin">
+            <a href="{% url  'update_profile' %}">Upadate Profile</a> 
+            <a href="{% url  'change_password' %}">Reset Password</a>
+            <a href="{% url  'login_' %}">Logout</a>
+        </div>
+    </div>
+ </center>
+
+ {% endblock content %}

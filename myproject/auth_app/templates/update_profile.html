@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+    <div class="update-container">
+        <h1>Update Profile</h1>
+        {% if messages %}
+        {% for message in messages %}
+        <p style="color: green; font-weight: bold;">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="from">
+            <form action="" method="POST">
+            {% csrf_token %}
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" value="{{ request.user.first_name }}" required><br>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" value="{{ request.user.last_name }}" required><br>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{ request.user.email }}" required><br>
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" value="{{ request.user.username }}" required><br><br>
+
+            <input type="submit" value="Update Profile">
+            </form>
+        </div>
+    </div>
+</center>
+{% endblock content %}

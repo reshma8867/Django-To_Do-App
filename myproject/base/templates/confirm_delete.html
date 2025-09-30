@@ -1,0 +1,24 @@
+{% extends  'main.html' %}
+
+
+{% block content %}
+
+<center>
+    <div class="confirm_delete">
+    <h1>Are you sure want to delete record? 
+        <h2>Title={{record.title}}</h2><br><br>
+        <div class="btn">
+
+            <a href="{% url 'delete_' record.id  %}" class="btn-read btn-delete">Delete</a>
+            <a href="{% url 'home' %}" class="btn-read btn-update">Cancle</a>
+
+        </div>
+        
+    </h1>
+    
+</div>
+
+</center>
+
+
+{% endblock content %}

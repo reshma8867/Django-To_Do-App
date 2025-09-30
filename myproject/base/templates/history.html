@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="home">
+    <h2>History</h2>
+    <div class="history_link">
+        <a href="{% url 'restore_all' %}">Resotre all</a>
+       <a href="{% url  'clear_all' %}">Clear all</a>
+
+    </div>
+    {% for i in data %}
+       <div class="task">
+         <h2>{{i.title}}</h2>
+         <h2>{{i.desc}}</h2>
+       </div>
+       <div class="task-footer">
+          <span class="article-id">#{{ i.id }}</span>
+          <a href="{% url  'restore_task' i.id %}">Restore task</a>
+          <a href="{% url 'delete_task' i.id %}">Delete task</a>
+         
+        </div>
+
+    {% endfor %}
+   
+</div>
+
+
+{% endblock content %}

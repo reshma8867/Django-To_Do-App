@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="home">
+    <form action="" style="display:flex; justify-content:center; margin:30px 0;">
+        <input type="text" name="q" placeholder="Search Here..."
+            style="width:300px; padding:10px 15px; border:2px solid #293dbc; border-radius:8px 0 0 8px; font-size:16px; outline:none; transition:0.3s;">
+        <input type="submit" value="Search"
+            style="padding:10px 20px; border:2px solid #293dbc; border-left:none; background-color:orange; color:white; font-weight:bold; font-size:14px; border-radius:0 8px 8px 0; cursor:pointer; transition:0.3s;">
+    </form>
+
+
+    {% for i in data %}
+        <div class="task">
+            <h2>{{ i.title }}</h2>
+            <h2>{{ i.desc }}</h2>
+        </div>
+        <div class="task-footer">
+            <span class="article-id">#{{ i.id }}</span>
+            <a href="{% url 'update' i.id %}" class="btn-read btn-update">Update</a>
+            <a href="{% url 'confirm_delete' i.id %}" class="btn-read btn-delete">Delete</a>
+            <a href="{% url 'complete' i.id %}" class="btn-read" style="background:#28a745;">Complete</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

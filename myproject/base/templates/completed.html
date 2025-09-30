@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div style="width: 90%; max-width: 900px; margin: 50px auto; font-family: Arial, sans-serif;">
+
+    <h1 style="text-align: center; color: #28a745; margin-bottom: 30px;">🎉 Completed Tasks</h1>
+
+    {% if data %}
+        {% for task in data %}
+            <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h2 style="margin: 5px 0; color: #2e7d32;">{{ task.title }}</h2>
+                <p style="margin: 5px 0; color: #555;">{{ task.desc }}</p>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: #666;">✔ Completed</span>
+                    <div>
+                        <a href="{% url 'undo_complete' task.id %}" style="padding: 6px 12px; background: #ffc107; color: black; text-decoration: none; border-radius: 6px; font-size: 14px; margin-right: 5px;">Undo</a>
+                        <a href="{% url 'delete_completed' task.id %}" style="padding: 6px 12px; background: #dc3545; color: white; text-decoration: none; border-radius: 6px; font-size: 14px;">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; color: #777; font-size: 18px;">No completed tasks yet. Keep going! 🚀</p>
+    {% endif %}
+
+</div>
+{% endblock content %}

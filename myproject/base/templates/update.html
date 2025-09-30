@@ -1,0 +1,25 @@
+  {% extends  'main.html' %}
+ {% block content %}
+
+ <center>
+  <div class="update">
+      <div class="update-t">
+        <h2>Update Task</h2><br>
+      </div>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="from">
+          <label for="">Title:</label>
+          <input type="text" name="title_attr" value="{{task.title}}"><br><br>
+          <label for="">Desc:</label>
+          <input type="text" name="desc_attr" value="{{task.desc}}"><br><br>
+          <input type="submit" value="Update Task" id="" class="btn-read btn-update">
+
+        </div>
+       
+
+      </form>
+  </div>
+ </center>
+
+ {% endblock content %}
